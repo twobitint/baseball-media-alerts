@@ -167,11 +167,13 @@
   }
 
   .popover-body {
-    background-color: #c5a0bc;
+    background-color: #000;
+    color: #fff;
     font-size: 20px;
     font-weight: bold;
+    width: 500px;
   }
   .popover .arrow::after {
-    border-bottom-color: #c5a0bc;
+    border-bottom-color: #000;
   }
 </style>

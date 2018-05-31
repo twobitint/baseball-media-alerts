@@ -28,10 +28,23 @@
       updatePosts () {
         this.$http.get('https://www.reddit.com/r/fantasybaseball/new.json')
           .then((resp) => {
+            const firstId = this.posts.length > 0 ? this.posts[0].id : null
             this.posts = resp.data.data.children.map((e) => {
               return e.data
             })
+            if (firstId && this.posts[0].id !== firstId) {
+              this.notify(this.posts[0])
+            }
           })
+      },
+      notify (post) {
+        let myNotification = new Notification('New r/fantasybaseball Post', {
+          body: post.title
+        })
+
+        myNotification.onclick = () => {
+          console.log('Notification clicked')
+        }
       }
     }
   }
