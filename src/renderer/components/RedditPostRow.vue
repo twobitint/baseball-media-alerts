@@ -18,7 +18,7 @@
           </b-badge>
         </small>
       </h3>
-      <b-popover hide :target="post.id" placement="bottomleft">
+      <b-popover disabled hide :target="post.id" placement="bottomleft">
         {{ latestComment }}
       </b-popover>
     </b-media>

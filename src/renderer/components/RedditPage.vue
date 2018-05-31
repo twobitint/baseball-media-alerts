@@ -1,8 +1,15 @@
 <template>
   <div class="wrapper">
-    <b-list-group>
-      <reddit-post-row :post="post" v-for="post in posts" :key="post.id"></reddit-post-row>
-    </b-list-group>
+    <b-tabs>
+      <b-tab title="reddit" active>
+        <b-list-group>
+          <reddit-post-row :post="post" v-for="post in posts" :key="post.id"></reddit-post-row>
+        </b-list-group>
+      </b-tab>
+      <b-tab title="yahoo">
+        <webview id="foo" src="https://baseball.fantasysports.yahoo.com/b1/17196" style="height:1000px; width: 100%;"></webview>
+      </b-tab>
+    </b-tabs>
   </div>
 </template>
 
