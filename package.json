@@ -60,6 +60,8 @@
     "bootstrap": "^4.1.1",
     "bootstrap-vue": "^2.0.0-rc.11",
     "date-fns": "^1.29.0",
+    "deep-diff": "^1.0.1",
+    "electron-context-menu": "^0.9.1",
     "moment": "^2.22.1",
     "vue": "^2.3.3",
     "vue-electron": "^1.0.6",

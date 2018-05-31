@@ -1,20 +1,7 @@
 <template>
   <div class="wrapper">
-    <h2>r/fantasybaseball/new</h2>
     <b-list-group>
-      <b-list-group-item v-for="post in posts" :key="post.id">
-        <b-media>
-          <b-img slot="aside" :src="thumb(post)" alt="" class="thumbnail" />
-          <h3>{{ post.title }}</h3>
-          <p>
-            ({{ post.score }})
-            {{ post.domain }}
-            Submitted <timeago :since="post.created_utc * 1000"></timeago>
-            
-            {{ post.num_comments }} comment(s)
-          </p>
-        </b-media>
-      </b-list-group-item>
+      <reddit-post-row :post="post" v-for="post in posts" :key="post.id"></reddit-post-row>
     </b-list-group>
   </div>
 </template>
@@ -22,6 +9,9 @@
 <script>
   export default {
     name: 'reddit-page',
+    components: {
+      'reddit-post-row': require('@/components/RedditPostRow').default
+    },
     data: () => {
       return {
         posts: []
@@ -29,14 +19,12 @@
     },
     mounted () {
       this.updatePosts()
+
+      setInterval(() => {
+        this.updatePosts()
+      }, 15000)
     },
     methods: {
-      open (link) {
-        this.$electron.shell.openExternal(link)
-      },
-      thumb (post) {
-        return !post.thumbnail.startsWith('http') ? 'static/reddit.png' : post.thumbnail
-      },
       updatePosts () {
         this.$http.get('https://www.reddit.com/r/fantasybaseball/new.json')
           .then((resp) => {
@@ -58,7 +46,11 @@
     padding: 0;
   }
 
-  body { font-family: 'Source Sans Pro', sans-serif; }
+  body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #ccc;
+    padding: 10px 0;
+  }
 
   .thumbnail {
     width: 100px;
