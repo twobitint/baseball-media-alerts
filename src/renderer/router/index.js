@@ -11,6 +11,16 @@ export default new Router({
       component: require('@/components/RedditPage').default
     },
     {
+      path: 'closermonkey',
+      name: 'closermonkey',
+      component: require('@/components/CloserMonkeyPage').default
+    },
+    {
+      path: 'yahoo',
+      name: 'yahoo',
+      component: require('@/components/YahooPage').default
+    },
+    {
       path: '*',
       redirect: '/'
     }

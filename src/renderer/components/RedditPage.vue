@@ -1,16 +1,21 @@
 <template>
   <div class="wrapper">
-    <b-tabs>
+    <b-list-group>
+      <reddit-post-row :post="post" v-for="post in posts" :key="post.id"></reddit-post-row>
+    </b-list-group>
+  </div>
+    <!-- <b-tabs>
       <b-tab title="reddit" active>
-        <b-list-group>
-          <reddit-post-row :post="post" v-for="post in posts" :key="post.id"></reddit-post-row>
-        </b-list-group>
+
       </b-tab>
       <b-tab title="yahoo">
-        <webview id="foo" src="https://baseball.fantasysports.yahoo.com/b1/17196" style="height:1000px; width: 100%;"></webview>
+        <webview src="https://baseball.fantasysports.yahoo.com/b1/17196" style="height:1000px; width: 100%;"></webview>
+      </b-tab>
+      <b-tab title="closermonkey">
+        <webview src="http://closermonkey.com" style="height:1000px; width: 100%;"></webview>
       </b-tab>
     </b-tabs>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -69,7 +74,6 @@
   body {
     font-family: 'Source Sans Pro', sans-serif;
     background-color: #ccc;
-    padding: 10px 0;
   }
 
   .thumbnail {
