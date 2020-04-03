@@ -1,6 +1,6 @@
 # baseball-alerts
 
-> Baseball Alerts
+> This is app is deprecated due to security concerns
 
 #### Build Setup
 
